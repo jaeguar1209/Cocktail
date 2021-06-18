@@ -1,4 +1,4 @@
-package com.example.cocktail;
+package com.example.asd;
 
 import android.provider.BaseColumns;
 
