@@ -50,13 +50,13 @@ public class DbMain extends AppCompatActivity implements View.OnClickListener {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         //커스텀 액티비티 연결
-        setContentView(R.layout.activity_cocktail_custom);
+        setContentView(R.layout.db_main);
         listView = (ListView)findViewById(R.id.listView);
         mDbOpenHelper = new DatabaseHelper(this);
         db=mDbOpenHelper.getWritableDatabase();
 
         //제목 텍스트박스
-        text_Main=(TextView)findViewById(R.id.text_main);
+        //text_Main=(TextView)findViewById(R.id.text_main);
 
         //정렬 버튼
         button_Name=(Button)findViewById(R.id.button_name);
