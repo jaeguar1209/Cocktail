@@ -25,19 +25,18 @@ import java.net.Socket;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import static com.example.asd.MainActivity.sub;
 
 public class RecommendMain extends Activity implements View.OnClickListener {
-    int SUGAR = 0;
-    int ALCOHOL = 0;
-    int BODY = 0;
-    int UNIQUE_ = 0;
+    double SUGAR = 0;
+    double ALCOHOL = 0;
+    double BODY = 0;
+    double UNIQUE_ = 0;
+    int N=0;
     int resID=0;
-    double sweetweight=1;
-    double alcoholweight=1;
-    double bodyweight=1;
-    double specialweight=1;
+
     Button connect_btn;                 // ip 받아오는 버튼
 
     private Handler mHandler;
@@ -50,8 +49,13 @@ public class RecommendMain extends Activity implements View.OnClickListener {
     private String ip = "172.30.1.46";            // IP 번호
     private int port = 8096;                          // port 번호
 
-    private final String dbName = "CocktailDB.db";
-    private final String tableName = "cocktail_table";
+    private final String dbName = "InnerDatabase(SQLite).db";
+    private final String tableName = "user_table";
+
+    ArrayList<Cocktail> arrayList;
+    SQLiteDatabase db;
+    DatabaseHelper mDbOpenHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,33 +63,64 @@ public class RecommendMain extends Activity implements View.OnClickListener {
         setContentView(R.layout.recommend_main);
         connect_btn = (Button)findViewById(R.id.buttonSubmit);
         connect_btn.setOnClickListener(this);
+        CalcAvg();
+
+    }
+    public  void CalcAvg(){
+        mDbOpenHelper = new DatabaseHelper(this);
+        db=mDbOpenHelper.getWritableDatabase();
+        int[] a=loadDataInListView();
+        mDbOpenHelper.onCreate(db);
+        SUGAR = a[0];
+        ALCOHOL = a[1];
+        BODY = a[2];
+        UNIQUE_ = a[3];
+        N=a[4];
+        SUGAR=SUGAR/N;
+        ALCOHOL=ALCOHOL/N;
+        BODY=BODY/N;
+        UNIQUE_=UNIQUE_/N;
     }
 
     public void onCheckboxClicked(View view) {
         boolean checked = ((CheckBox) view).isChecked();
-
         switch(view.getId()) {
             case R.id.checkBox1:
-                if (checked)
-                    sweetweight=1.2;
+                if (checked) {
+                    SUGAR = SUGAR * 1.2;
                     break;
+                }
+                else{
+                    SUGAR = SUGAR / 1.2;
+                    break;
+                }
             case R.id.checkBox2:
-                if (checked)
-                    alcoholweight=1.2;
+                if (checked) {
+                    ALCOHOL = ALCOHOL * 1.2;
                     break;
+                }
+                else{
+                    ALCOHOL = ALCOHOL / 1.2;
+                    break;
+                }
             case R.id.checkBox3:
-                if (checked)
-                    bodyweight=1.2;
-                break;
+                if (checked) {
+                    BODY = BODY * 1.2;
+                    break;
+                }
+                else {
+                    BODY = BODY / 1.2;
+                    break;
+                }
             case R.id.checkBox4:
-                if (checked)
-                    specialweight=1.2;
-                break;
-            default:
-                sweetweight=1.0;
-                alcoholweight=1.0;
-                bodyweight=1.0;
-                specialweight=1.0;
+                if (checked) {
+                    UNIQUE_ = UNIQUE_ * 1.2;
+                    break;
+                }
+                else {
+                    UNIQUE_ = UNIQUE_ / 1.2;
+                    break;
+                }
         }
     }
 
@@ -95,15 +130,24 @@ public class RecommendMain extends Activity implements View.OnClickListener {
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.buttonSubmit:     // ip 받아오는 버튼
-                connect();
-                System.out.println(resID);
+                String sugar = Double.toString(SUGAR);
+                String alcohol = Double.toString(ALCOHOL);
+                String body= Double.toString(BODY);
+                String unique_ = Double.toString(UNIQUE_);
+                String pass= sugar+" "+alcohol+" "+body+" "+unique_;
+                connect(pass);
+                while (resID==0) {
+                }
                 Intent intent = new Intent(getApplicationContext(), RecommendResult.class);
+                intent.putExtra("res",resID);
                 startActivityForResult(intent,sub);
+
         }
     }
 
+
     // 로그인 정보 db에 넣어주고 연결시켜야 함.
-    void connect() {
+    void connect(String pass) {
         mHandler = new Handler();
         Log.w("connect", "연결 하는중");
         // 받아오는거
@@ -113,26 +157,24 @@ public class RecommendMain extends Activity implements View.OnClickListener {
                 // 서버 접속
                 try {
                     socket = new Socket(ip, port);
-                    Log.w("서버 접속됨", "서버 접속됨");
+                    Log.w("서버 ", "접속됨");
                 } catch (IOException e1) {
-                    Log.w("서버접속못함", "서버접속못함");
                     e1.printStackTrace();
                 }
 
-                Log.w("edit 넘어가야 할 값 : ", "안드로이드에서 서버로 연결요청");
 
                 try {
                     dos = new DataOutputStream(socket.getOutputStream());   // output에 보낼꺼 넣음
                     dis = new DataInputStream(socket.getInputStream());//input에 받을꺼 넣어짐
-                    dos.writeUTF("19 80 60 80");
+                    dos.writeUTF(pass);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    Log.w("버퍼", "버퍼생성 잘못됨");
                 }
-                Log.w("버퍼", "버퍼생성 잘됨");
+
                 byte[] a;
                 // 서버에서 계속 받아옴 - 한번은 문자, 한번은 숫자를 읽음. 순서 맞춰줘야 함.
                 try {
+                    Log.w("값", "받아옴");
                     resID= ((int)dis.read());
 
 
@@ -143,5 +185,9 @@ public class RecommendMain extends Activity implements View.OnClickListener {
         };
         // 소켓 접속 시도, 버퍼생성
         checkUpdate.start();
+    }
+    private int[] loadDataInListView() {
+        int[] a = mDbOpenHelper.getRequireData();
+        return a;
     }
 }
