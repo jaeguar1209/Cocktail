@@ -48,7 +48,7 @@ public class RecommendMain extends Activity implements View.OnClickListener {
     private DataInputStream dis;
 
     private String ip = "172.30.1.46";            // IP 번호
-    private int port = 3000;                          // port 번호
+    private int port = 8096;                          // port 번호
 
     private final String dbName = "CocktailDB.db";
     private final String tableName = "cocktail_table";
