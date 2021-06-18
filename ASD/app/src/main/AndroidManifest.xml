@@ -27,6 +27,7 @@
         <activity android:name=".SearchMain" />
         <activity android:name=".RecommendResult" />
         <activity android:name=".DbMain"/>
+        <activity android:name=".CocktailDetailActivity"/>
 
     </application>
 
