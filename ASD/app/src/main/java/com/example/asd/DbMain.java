@@ -29,7 +29,7 @@ public class DbMain extends AppCompatActivity implements View.OnClickListener {
     Button button_Alcohol;
     Button button_Sugar;
     Button button_Body;
-    Button button_Unique;
+    Button button_Unique;;
 
     //커스텀 리스트뷰 설정
     ArrayAdapter<String> arrayAdapter;
