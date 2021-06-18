@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ASD</string>
+    <string name="tab4">Tab4</string>
+    <string name="tab3">Tab3</string>
+    <string name="tab2">Tab2</string>
+    <string name="tab1">Tab1</string>
+    <string name="special">special</string>
+    <string name="body">Body</string>
+    <string name="alcohol">Alcohol</string>
+    <string name="sweet">Sweet</string>
+</resources>
