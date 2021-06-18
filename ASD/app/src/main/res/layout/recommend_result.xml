@@ -14,7 +14,7 @@
         app:contentInsetStart="0dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="@+id/view">
 
         <TextView
             android:id="@+id/txv_toolbar"
@@ -26,5 +26,191 @@
             android:textSize="20sp" />
     </android.widget.Toolbar>
 
+    <com.github.mikephil.charting.charts.RadarChart
+        android:id="@+id/chart_radar"
+        android:layout_width="181dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="360dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cocktail_unique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_cocktail_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="9dp"
+        android:text="독특함 : "
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_cocktail_body"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cocktail_body" />
+
+    <ToggleButton
+        android:id="@+id/btn_favorite"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="152dp"
+        android:layout_marginLeft="152dp"
+        android:layout_marginBottom="44dp"
+        android:background="@drawable/ic_favorite_border"
+        android:checked="false"
+        android:text=""
+        android:textOff=""
+        android:textOn=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="37dp"
+        android:text="name"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_alcohol"
+        app:layout_constraintStart_toStartOf="@+id/tv_sugar" />
+
+    <TextView
+        android:id="@+id/tv_cocktail_sugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_cocktail_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="7dp"
+        android:text="당   도 : "
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_cocktail_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cocktail_name" />
+
+    <TextView
+        android:id="@+id/tv_unique"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="unique"
+        android:textSize="17sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_cocktail_unique"
+        app:layout_constraintStart_toStartOf="@+id/tv_body" />
+
+    <TextView
+        android:id="@+id/tv_cocktail_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_cocktail_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="7dp"
+        android:text="베이스 : "
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_cocktail_unique"
+        app:layout_constraintTop_toBottomOf="@+id/tv_cocktail_unique" />
+
+    <TextView
+        android:id="@+id/tv_cocktail_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="14dp"
+        android:layout_marginRight="14dp"
+        android:text="이   름 : "
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_name"
+        app:layout_constraintTop_toTopOf="@+id/tv_name" />
+
+    <TextView
+        android:id="@+id/tv_base"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:text="base"
+        android:textSize="17sp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/tv_cocktail_base"
+        app:layout_constraintStart_toStartOf="@+id/tv_unique" />
+
+    <TextView
+        android:id="@+id/tv_alcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="66dp"
+        android:layout_marginRight="66dp"
+        android:layout_marginBottom="288dp"
+        android:text="alcohol"
+        android:textSize="17sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_cocktail_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tv_cocktail_name"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="11dp"
+        android:layout_marginRight="11dp"
+        android:text="바디감 : "
+        android:textSize="17sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_body"
+        app:layout_constraintTop_toTopOf="@+id/tv_body" />
+
+    <TextView
+        android:id="@+id/tv_body"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="5dp"
+        android:text="body"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_alcohol"
+        app:layout_constraintTop_toBottomOf="@+id/tv_alcohol" />
+
+    <TextView
+        android:id="@+id/tv_cocktail_alcohol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/tv_cocktail_name"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="5dp"
+        android:text="도   수 : "
+        android:textSize="17sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_cocktail_body"
+        app:layout_constraintStart_toStartOf="@+id/tv_cocktail_body" />
+
+    <TextView
+        android:id="@+id/tv_sugar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="7dp"
+        android:text="sugar"
+        android:textSize="17sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_alcohol"
+        app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="2px"
+        android:background="#00ff00"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
