@@ -121,4 +121,25 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return arrayList;
     }
+    public int[] getRequireData(){
+        int sugar=0;
+        int alcohol=0;
+        int body=0;
+        int unique_=0;
+        int n=0;
+        ArrayList<Cocktail> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME1,null);
+        while(cursor.moveToNext()){
+            cursor.getString(0);
+            sugar =sugar+ cursor.getInt(1);
+            alcohol =alcohol+ cursor.getInt(2);
+            body =body+ cursor.getInt(3);
+            unique_ =unique_+ cursor.getInt(4);
+            cursor.getInt(6);
+            n=n+1;
+        }
+        int[] res={sugar, alcohol, body, unique_,n};
+        return res;
+    }
 }
