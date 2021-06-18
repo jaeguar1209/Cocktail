@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 커스텀리스트 -->
+    <ImageView
+        android:id="@+id/imageView0"
+        android:layout_width="120dp"
+        android:layout_height="140dp"
+        android:scaleType="fitXY"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:src="@drawable/bluelagoon"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="160dp">
+
+        <TextView
+            android:id="@+id/cocktailName0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="160dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center_vertical"
+            android:text="Name"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/cocktailBase0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="341dp"
+            android:layout_marginTop="4dp"
+            android:gravity="center_vertical"
+            android:text="Base"
+            android:textColor="@android:color/holo_green_light"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_sugar0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="40dp"
+            android:textSize="17sp"
+            android:text="당도" />
+
+        <TextView
+            android:id="@+id/tv_alcohol0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="70dp"
+            android:textSize="17sp"
+            android:text="도수" />
+
+        <TextView
+            android:id="@+id/tv_body0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="100dp"
+            android:textSize="17sp"
+            android:text="바디감" />
+
+        <TextView
+            android:id="@+id/tv_unique0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="130dp"
+            android:textSize="17sp"
+            android:text="독특함" />
+
+        <RatingBar
+            android:id="@+id/rb_sugar0"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="38dp"
+            android:layout_marginEnd="30dp"
+            android:isIndicator="true"
+            android:scaleX=".8"
+            android:scaleY=".7"
+            android:stepSize="0.1"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp" />
+
+        <RatingBar
+            android:id="@+id/rb_alcohol0"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="69dp"
+            android:layout_marginEnd="30dp"
+            android:isIndicator="true"
+            android:scaleX=".8"
+            android:scaleY=".7"
+            android:stepSize="0.1"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp" />
+
+        <RatingBar
+            android:id="@+id/rb_body0"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="99dp"
+            android:layout_marginEnd="30dp"
+            android:isIndicator="true"
+            android:scaleX=".8"
+            android:scaleY=".7"
+            android:stepSize="0.1"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp" />
+
+        <RatingBar
+            android:id="@+id/rb_unique0"
+            style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="129dp"
+            android:layout_marginEnd="30dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:scaleX=".8"
+            android:scaleY=".7"
+            android:stepSize="0.1"
+            android:transformPivotX="0dp"
+            android:transformPivotY="0dp" />
+
+    </RelativeLayout>
+</RelativeLayout>
