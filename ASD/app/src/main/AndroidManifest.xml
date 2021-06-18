@@ -23,10 +23,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".RecommendMain" />
-        <activity android:name=".DbMain" />
         <activity android:name=".MyCocktailMain" />
         <activity android:name=".SearchMain" />
         <activity android:name=".RecommendResult" />
+        <activity android:name=".DbMain"/>
 
     </application>
 
