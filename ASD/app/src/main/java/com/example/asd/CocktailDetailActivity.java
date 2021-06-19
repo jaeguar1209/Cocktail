@@ -35,7 +35,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
     String CocktailBase;
     TextView tv_name,tv_sugar,tv_alcohol,tv_body,tv_unique,tv_base;
     ToggleButton btn_favorite;
-    DatabaseHelper mDbOpenHelper;
+    DatabaseHelper mDbOpenHelper;;
     ScaleAnimation scaleAnimation;
     @Override
     protected void onCreate(Bundle savedInstanceState){
