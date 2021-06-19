@@ -30,6 +30,7 @@
         <activity android:name=".DbMain"/>
         <activity android:name=".SearchActivity"/>
         <activity android:name=".NameSearchActivity"/>
+        <activity android:name=".CocktailDetailActivity"/>
 
     </application>
 
