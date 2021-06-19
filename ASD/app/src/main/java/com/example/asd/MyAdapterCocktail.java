@@ -77,9 +77,9 @@ public class MyAdapterCocktail extends BaseAdapter{
                 nowData[4] = String.valueOf(cocktail.getUnique_());
                 nowData[5] = cocktail.getBase();
                 nowData[6] = String.valueOf(cocktail.getId());
-                //Intent intent = new Intent(context, CocktailDetailActivity.class);
-                //intent.putExtra("cocktaildata",nowData);
-                //context.startActivity(intent);
+                Intent intent = new Intent(context, CocktailDetailActivity.class);
+                intent.putExtra("cocktaildata",nowData);
+                context.startActivity(intent);
             }
         });
 
