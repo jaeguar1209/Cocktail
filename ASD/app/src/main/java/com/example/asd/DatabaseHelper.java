@@ -72,8 +72,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public boolean isFavorite(long _id){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME1 +" WHERE _ID = "+_id,null);
-        if(cursor.getCount()>=1)
+        if(cursor.getCount()>=1){
             return true;
+        }
         else
             return false;
     }
