@@ -5,59 +5,19 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.renderscript.ScriptGroup;
 import android.util.Log;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "InnerDatabase(SQLite).db";
-    private static String DB_PATH = "";
     private static final int DATABASE_VERSION = 1;
     public static SQLiteDatabase mDB;
-    private Context mContext;
     private DatabaseHelper mDBHelper;
     public DatabaseHelper(Context context){
         super(context,DATABASE_NAME,null,DATABASE_VERSION);
+    }
 
-        DB_PATH = "/data/data/"+context.getPackageName() + "/databases/";
-        this.mContext=context;
-        dataBaseCheck();
-    }
-    private void dataBaseCheck()
-    {
-        File dbFile = new File(DB_PATH + DATABASE_NAME);
-        if(!dbFile.exists()){
-            dbCopy();
-        }
-    }
-    private void dbCopy(){
-        try{
-            File folder = new File(DB_PATH);
-            if(!folder.exists()){
-                folder.mkdir();
-            }
-            InputStream inputStream = mContext.getAssets().open(DATABASE_NAME);
-            String out_filename = DB_PATH + DATABASE_NAME;
-            OutputStream outputStream = new FileOutputStream(out_filename);
-            byte[] mBuffer = new byte[1024];
-            int mLength;
-            while((mLength=inputStream.read(mBuffer))>0){
-                outputStream.write(mBuffer,0,mLength);
-            }
-            outputStream.flush();
-            outputStream.close();
-            inputStream.close();
-        }
-        catch(IOException e){
-            e.printStackTrace();
-        }
-    }
     @Override
     public void onCreate(SQLiteDatabase db){
         db.execSQL(com.example.asd.DataBases.CreateDB._CREATE0);
@@ -182,5 +142,41 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         int[] res={sugar, alcohol, body, unique_,n};
         return res;
+    }
+    public String[] getById(int index){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME0 +" WHERE _ID = "+index,null);
+        String name="";
+        String base="";
+        String Sugar="";
+        String Alcohol="";
+        String Body="";
+        String Unique_="";
+        String _Id="";
+        if(cursor.moveToFirst()){
+            name = cursor.getString(0);
+            int sugar = cursor.getInt(1);
+            int alcohol = cursor.getInt(2);
+            int body = cursor.getInt(3);
+            int unique_ = cursor.getInt(4);
+            base = cursor.getString(5);
+            int _id = cursor.getInt(6);
+            Log.d("cursor 0: ",name);
+            Log.d("cursor 1: ",Integer.toString(sugar));
+            Log.d("cursor 2: ",Integer.toString(alcohol));
+            Log.d("cursor 3: ",Integer.toString(body));
+            Log.d("cursor 4: ",Integer.toString(unique_));
+            Log.d("cursor 5: ",base);
+            Log.d("cursor 6: ",Integer.toString(_id));
+            Sugar=Integer.toString(sugar);
+            Alcohol=Integer.toString(alcohol);
+            Body=Integer.toString(body);
+            Unique_=Integer.toString(unique_);
+            _Id=Integer.toString(_id);
+        }
+        String[] a={name, Sugar, Alcohol, Body, Unique_, base, _Id};
+        cursor.close();
+        return a;
+
     }
 }
