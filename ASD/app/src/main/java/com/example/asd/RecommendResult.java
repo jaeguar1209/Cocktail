@@ -21,7 +21,6 @@ public class RecommendResult extends Activity{
         Intent intent = getIntent();
         int res=intent.getIntExtra("res",-1);
 
-
     }
 
 }
