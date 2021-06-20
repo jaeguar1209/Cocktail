@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
@@ -12,6 +13,7 @@ import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.ScaleAnimation;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -26,6 +28,16 @@ import com.github.mikephil.charting.data.RadarDataSet;
 import com.github.mikephil.charting.data.RadarEntry;
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class CocktailDetailActivity extends AppCompatActivity {
@@ -37,11 +49,30 @@ public class CocktailDetailActivity extends AppCompatActivity {
     ToggleButton btn_favorite;
     DatabaseHelper mDbOpenHelper;;
     ScaleAnimation scaleAnimation;
+    int _id;
+    TextView ingredient_detail;
+    String JSON_URL ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+    ModelClass model = new ModelClass();
+
+
+    int[] countryFlags={R.drawable.jackcoke,R.drawable.godfather,R.drawable.mintjulpe,R.drawable.hottoddy,R.drawable.highball,
+            R.drawable.irishcoffee,R.drawable.screwdriver,R.drawable.saltydog,R.drawable.godmother,R.drawable.balalaika,
+            R.drawable.kamikaje,R.drawable.sexonthebeach,R.drawable.bluelagoon,R.drawable.vodkatonic,R.drawable.brainhemorrhage,
+            R.drawable.orgazm,R.drawable.americano,R.drawable.bluesapphire,R.drawable.angelskiss,R.drawable.midorisour,
+            R.drawable.bandb,R.drawable.kahluamilk,R.drawable.appetizer,R.drawable.bluemoon,R.drawable.ginrickey,
+            R.drawable.gibson,R.drawable.gimlet,R.drawable.gintonic,R.drawable.ginbuck,R.drawable.faust,
+            R.drawable.katharsis,R.drawable.xyz,R.drawable.mojito,R.drawable.rumandcoke};
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cocktail_detail);
+
+
+        ImageView cImage=(ImageView)findViewById(R.id.imageView6);
+
+
         chart = (RadarChart) findViewById(R.id.chart_radar);
         makeChart();
         tv_name = (TextView)findViewById(R.id.tv_name);
@@ -64,6 +95,18 @@ public class CocktailDetailActivity extends AppCompatActivity {
         scaleAnimation.setInterpolator(bounceInterPolator);
         mDbOpenHelper = new DatabaseHelper(this);
         setFavoriteButton();
+
+        ingredient_detail = (TextView)findViewById(R.id.ingredient_detail);
+        cImage.setImageResource(countryFlags[_id-1]);
+
+
+        StringBuilder BaseURL = new StringBuilder();
+        BaseURL.append(JSON_URL);
+        BaseURL.append(nowData[0]);
+        JSON_URL = BaseURL.toString();
+
+        CocktailDetailActivity.GetData getData = new CocktailDetailActivity.GetData();
+        getData.execute();
     }
     //좋아요 버튼 이미지 설정
     private void setFavoriteButton(){
@@ -189,4 +232,66 @@ public class CocktailDetailActivity extends AppCompatActivity {
             return false;
         return true;
     }
+    public class GetData extends AsyncTask<String, String, String> {
+        @Override
+        protected String doInBackground(String... strings) {
+            String current = "";
+            try {
+                URL url;
+                HttpURLConnection urlConnection = null;
+                try {
+                    url = new URL(JSON_URL);
+                    urlConnection = (HttpURLConnection) url.openConnection();
+                    InputStream in = urlConnection.getInputStream();
+                    InputStreamReader isr = new InputStreamReader(in);
+                    int data = isr.read();
+                    while (data != -1) {
+                        current += (char) data;
+                        data = isr.read();
+                    }
+                    return current;
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } finally {
+                    if (urlConnection != null) {
+                        urlConnection.disconnect();
+                    }
+                }
+            }catch (Exception e) {
+                e.printStackTrace();
+            }
+            return current;
+        }
+        @Override
+        protected void onPostExecute(String s) {
+            try {
+                JSONObject jsonObject = new JSONObject(s);
+                JSONArray jsonArray = jsonObject.getJSONArray("drinks");
+
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
+
+
+                String ingredientIndex;
+                for (int j = 1; j < 10; j++) {
+                    StringBuilder ingredient = new StringBuilder();
+                    ingredient.append("strIngredient");
+                    ingredient.append(j);
+                    ingredientIndex = ingredient.toString();
+                    if (jsonObject1.getString(ingredientIndex) == "null")
+                        break;
+                    model.AddingredList(jsonObject1.getString(ingredientIndex));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            putDataIngredient(model.getIngredList());
+        }
+    }
+
+    private void putDataIngredient(String recipe){
+        ingredient_detail.setText(recipe);
+    }
+
 }
