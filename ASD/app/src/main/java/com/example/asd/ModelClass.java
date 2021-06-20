@@ -40,7 +40,7 @@ public class ModelClass {
     public String getIngredList() {
         StringBuilder recipe = new StringBuilder();
         recipe.append("Ingredient");
-        recipe.append("\n");
+        recipe.append("\n\n");
         for(String data : ingredList) {
             recipe.append(" - ");
             recipe.append(data);
