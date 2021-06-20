@@ -28,6 +28,24 @@ public class Cocktail {
     public void setName(String name){
         this.name=name;
     }
+    public void setSugar(int sugar){
+        this.sugar=sugar;
+    }
+    public void setAlcohol(int alcohol){
+        this.alcohol=alcohol;
+    }
+    public void setBody(int body){
+        this.body=body;
+    }
+    public void setUnique_(int unique_){
+        this.unique_=unique_;
+    }
+    public void setBase(String base){
+        this.base=base;
+    }
+    public void set_id(int _id){
+        this._id=_id;
+    }
     public int getSugar(){
         return sugar;
     }

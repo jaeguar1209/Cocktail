@@ -22,8 +22,7 @@ import java.util.Comparator;
 public class DbMain extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "CocktailDb";
-    //제목
-    TextView text_Main;
+
     // 정렬을 위한 버튼
     Button button_Name;
     Button button_Alcohol;

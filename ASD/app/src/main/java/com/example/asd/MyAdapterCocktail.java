@@ -82,13 +82,6 @@ public class MyAdapterCocktail extends BaseAdapter{
                 context.startActivity(intent);
             }
         });
-
-        Log.d("adapter name",cocktail.getName());
-        Log.d("adapter sugar", String.valueOf(cocktail.getSugar()));
-        Log.d("adapter alcohol", String.valueOf(cocktail.getAlcohol()));
-        Log.d("adapter body", String.valueOf(cocktail.getBody()));
-        Log.d("adapter unique", String.valueOf(cocktail.getUnique_()));
-        Log.d("adapter base",cocktail.getBase());
         return convertView;
     }
 }

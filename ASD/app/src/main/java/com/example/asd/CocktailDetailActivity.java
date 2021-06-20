@@ -65,7 +65,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
         mDbOpenHelper = new DatabaseHelper(this);
         setFavoriteButton();
     }
-    //초기 좋아요 버튼 이미지 설정
+    //좋아요 버튼 이미지 설정
     private void setFavoriteButton(){
         boolean haveItem = mDbOpenHelper.isFavorite(Long.parseLong(nowData[6]));
         if(haveItem){
