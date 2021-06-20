@@ -169,17 +169,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
         return arrayList;
     }
-    public int[] getRequireData(){
+    public String[] getRequireData(){
         int sugar=0;
         int alcohol=0;
         int body=0;
         int unique_=0;
         int n=0;
-        ArrayList<Cocktail> arrayList = new ArrayList<>();
+        String Name="";
+        String Sugar="";
+        String Alcohol="";
+        String Body="";
+        String Unique_="";
+        String N="";
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME1,null);
         while(cursor.moveToNext()){
-            cursor.getString(0);
+            Name=Name+cursor.getString(0)+",";
             sugar =sugar+ cursor.getInt(1);
             alcohol =alcohol+ cursor.getInt(2);
             body =body+ cursor.getInt(3);
@@ -187,7 +192,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             cursor.getInt(6);
             n=n+1;
         }
-        int[] res={sugar, alcohol, body, unique_,n};
+        Sugar=Integer.toString(sugar);
+        Alcohol=Integer.toString(alcohol);
+        Body=Integer.toString(body);
+        Unique_=Integer.toString(unique_);
+        N=Integer.toString(n);
+        String[] res={Name,Sugar, Alcohol, Body, Unique_,N};
         return res;
     }
     public String[] getById(int index){

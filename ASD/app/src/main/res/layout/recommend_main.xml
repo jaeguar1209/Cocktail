@@ -80,5 +80,16 @@
         android:textColor="#566270"
         android:text="Button" />
 
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="195dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="개취존중"
+        android:textColor="#566270"
+        android:textSize="50dp"
+        android:textStyle="bold"/>
+
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
