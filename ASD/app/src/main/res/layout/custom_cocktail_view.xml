@@ -23,12 +23,13 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="160dp"
+            android:layout_marginLeft="140dp"
             android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:text="Name"
-            android:textColor="#95E0C8"
-            android:textSize="20sp" />
+            android:textColor="#566270"
+            android:textStyle="bold"
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/cocktailBase0"
@@ -40,7 +41,7 @@
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:text="Base"
-            android:textColor="#95E0C8"
+            android:textColor="#566270"
             android:textSize="15sp" />
 
         <TextView
@@ -51,8 +52,9 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="40dp"
-            android:textSize="17sp"
-            android:text="당도" />
+            android:textSize="15sp"
+            android:text="당도"
+            android:textColor="#566270"/>
 
         <TextView
             android:id="@+id/tv_alcohol0"
@@ -62,7 +64,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="70dp"
-            android:textSize="17sp"
+            android:textSize="15sp"
+            android:textColor="#566270"
             android:text="도수" />
 
         <TextView
@@ -73,7 +76,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="100dp"
-            android:textSize="17sp"
+            android:textSize="15sp"
+            android:textColor="#566270"
             android:text="바디감" />
 
         <TextView
@@ -84,24 +88,25 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="130dp"
-            android:textSize="17sp"
+            android:textSize="15sp"
+            android:textColor="#566270"
             android:text="독특함" />
 
         <RatingBar
             android:id="@+id/rb_sugar0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressTint="@color/black"
-            android:progressBackgroundTint="@color/white"
-            android:secondaryProgressTint="@color/black"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="168dp"
+            android:layout_height="48dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="38dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="43dp"
             android:isIndicator="true"
+            android:progressBackgroundTint="#E0E3DA"
+            android:progressTint="#566270"
             android:scaleX=".8"
             android:scaleY=".7"
+            android:secondaryProgressTint="#566270"
             android:stepSize="0.1"
             android:transformPivotX="0dp"
             android:transformPivotY="0dp" />
@@ -109,9 +114,9 @@
         <RatingBar
             android:id="@+id/rb_alcohol0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressTint="@color/black"
-            android:progressBackgroundTint="@color/white"
-            android:secondaryProgressTint="@color/black"
+            android:progressTint="#566270"
+            android:progressBackgroundTint="#E0E3DA"
+            android:secondaryProgressTint="#566270"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -128,9 +133,9 @@
         <RatingBar
             android:id="@+id/rb_body0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressTint="#95E0C8"
-            android:progressBackgroundTint="@color/white"
-            android:secondaryProgressTint="#95E0C8"
+            android:progressTint="#566270"
+            android:progressBackgroundTint="#E0E3DA"
+            android:secondaryProgressTint="#566270"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -147,9 +152,9 @@
         <RatingBar
             android:id="@+id/rb_unique0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressTint="#95E0C8"
-            android:progressBackgroundTint="@color/white"
-            android:secondaryProgressTint="#95E0C8"
+            android:progressTint="#566270"
+            android:progressBackgroundTint="#E0E3DA"
+            android:secondaryProgressTint="#566270"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
