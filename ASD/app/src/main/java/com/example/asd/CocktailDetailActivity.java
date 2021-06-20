@@ -85,7 +85,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
 
         StringBuilder BaseURL = new StringBuilder();
         BaseURL.append(JSON_URL);
-        BaseURL.append("Godmother");
+        BaseURL.append(nowData[0]);
         JSON_URL = BaseURL.toString();
 
 
@@ -258,7 +258,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
                 JSONObject jsonObject = new JSONObject(s);
                 JSONArray jsonArray = jsonObject.getJSONArray("drinks");
 
-                JSONObject jsonObject1 = jsonArray.getJSONObject(1);
+                JSONObject jsonObject1 = jsonArray.getJSONObject(0);
 
 
                 String ingredientIndex;
