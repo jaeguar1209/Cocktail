@@ -53,11 +53,29 @@ public class CocktailDetailActivity extends AppCompatActivity {
     String JSON_URL ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
     ModelClass model = new ModelClass();
 
+//    Integer res;
+
+//    int[] countryFlags={R.drawable.jackcoke,R.drawable.godfather,R.drawable.mintjulpe,R.drawable.hottoddy,R.drawable.highball,
+//            R.drawable.irishcoffee,R.drawable.screwdriver,R.drawable.saltydog,R.drawable.godmother,R.drawable.balalaika,
+//            R.drawable.kamikaje,R.drawable.sexonthebeach,R.drawable.bluelagoon,R.drawable.vodkatonic,R.drawable.brainhemorrhage,
+//            R.drawable.orgazm,R.drawable.americano,R.drawable.bluesapphire,R.drawable.angelskiss,R.drawable.midorisour,
+//            R.drawable.bandb,R.drawable.kahluamilk,R.drawable.appetizer,R.drawable.bluemoon,R.drawable.ginrickey,
+//            R.drawable.gibson,R.drawable.gimlet,R.drawable.gintonic,R.drawable.ginbuck,R.drawable.faust,
+//            R.drawable.katharsis,R.drawable.xyz,R.drawable.mojito,R.drawable.rumandcoke};
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_cocktail_detail);
+
+
+//        ImageView cImage=(ImageView)findViewById(R.id.imageView6);
+
+
         chart = (RadarChart) findViewById(R.id.chart_radar);
         makeChart();
         tv_name = (TextView)findViewById(R.id.tv_name);
@@ -82,6 +100,8 @@ public class CocktailDetailActivity extends AppCompatActivity {
         setFavoriteButton();
 
         ingredient_detail = (TextView)findViewById(R.id.ingredient_detail);
+
+//        cImage.setImageResource(countryFlags[res-1]);
 
         StringBuilder BaseURL = new StringBuilder();
         BaseURL.append(JSON_URL);
@@ -145,14 +165,21 @@ public class CocktailDetailActivity extends AppCompatActivity {
         4 : long : 독특함
         5 : string : 베이스
          */
+
         nowData = intent.getStringArrayExtra("cocktaildata");
+//       res=intent.getIntExtra("cocktaildata",-1);
+
         dataVals.add(new RadarEntry(Long.parseLong(nowData[1])));
         dataVals.add(new RadarEntry(Long.parseLong(nowData[2])));
         dataVals.add(new RadarEntry(Long.parseLong(nowData[3])));
         dataVals.add(new RadarEntry(Long.parseLong(nowData[4])));
         CocktailBase = selectBase(nowData[5]);
+
+
+
         return dataVals;
     }
+
     private void makeChart(){
         //데이타셋
 
