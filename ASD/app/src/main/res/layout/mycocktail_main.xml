@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="좋아하는 칵테일"
+            android:text="MYCOCKTAIL"
             android:textColor="#566270"
             android:textSize="20sp" />
     </android.widget.Toolbar>
