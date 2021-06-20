@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="341dp"
-        android:background="#ff5c00"
+        android:background="#a593e0"
         app:contentInsetStart="0dp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
