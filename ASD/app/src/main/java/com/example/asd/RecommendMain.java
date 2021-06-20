@@ -1,39 +1,28 @@
 package com.example.asd;
 
-import android.annotation.SuppressLint;
+
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
-
-import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.Socket;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
-import static com.example.asd.MainActivity.sub;
 
 public class RecommendMain extends Activity implements View.OnClickListener {
     double SUGAR = 0;
     double ALCOHOL = 0;
     double BODY = 0;
     double UNIQUE_ = 0;
+    String NAME="";
     int N=0;
     int resID=0;
 
@@ -46,8 +35,8 @@ public class RecommendMain extends Activity implements View.OnClickListener {
     private DataOutputStream dos;
     private DataInputStream dis;
 
-    private String ip = "172.30.1.46";            // IP 번호
-    private int port = 8096;                          // port 번호
+    private String ip = "172.24.112.1";            // IP 번호
+    private int port = 8080;                          // port 번호
 
     private final String dbName = "InnerDatabase(SQLite).db";
     private final String tableName = "user_table";
@@ -69,13 +58,14 @@ public class RecommendMain extends Activity implements View.OnClickListener {
     public  void CalcAvg(){
         mDbOpenHelper = new DatabaseHelper(this);
         db=mDbOpenHelper.getWritableDatabase();
-        int[] a=loadDataInListView();
+        String[] a=loadDataInListView();
         mDbOpenHelper.onCreate(db);
-        SUGAR = a[0];
-        ALCOHOL = a[1];
-        BODY = a[2];
-        UNIQUE_ = a[3];
-        N=a[4];
+        NAME=a[0];
+        SUGAR = Integer.parseInt(a[1]);
+        ALCOHOL = Integer.parseInt(a[2]);
+        BODY = Integer.parseInt(a[3]);
+        UNIQUE_ = Integer.parseInt(a[4]);
+        N=Integer.parseInt(a[5]);
         SUGAR=SUGAR/N;
         ALCOHOL=ALCOHOL/N;
         BODY=BODY/N;
@@ -134,7 +124,8 @@ public class RecommendMain extends Activity implements View.OnClickListener {
                 String alcohol = Double.toString(ALCOHOL);
                 String body= Double.toString(BODY);
                 String unique_ = Double.toString(UNIQUE_);
-                String pass= sugar+" "+alcohol+" "+body+" "+unique_;
+                String pass= sugar+" "+alcohol+" "+body+" "+unique_+","+NAME;
+                System.out.println(pass);
                 connect(pass);
                 while (resID==0) {
                 }
@@ -186,8 +177,8 @@ public class RecommendMain extends Activity implements View.OnClickListener {
         // 소켓 접속 시도, 버퍼생성
         checkUpdate.start();
     }
-    private int[] loadDataInListView() {
-        int[] a = mDbOpenHelper.getRequireData();
+    private String[] loadDataInListView() {
+        String[] a = mDbOpenHelper.getRequireData();
         return a;
     }
 }
