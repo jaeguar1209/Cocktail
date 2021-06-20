@@ -1,6 +1,7 @@
 package com.example.asd;
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -69,6 +70,21 @@ public class MyAdapterUser extends BaseAdapter{
         cUnique.setRating((float) (cocktail.getUnique_()*0.05));
         cBase.setText(cocktail.getBase());
         cImage.setImageResource(flags[cocktail.getId()-1]);
+        cImage.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                String[] nowData = new String[7];
+                nowData[0] = cocktail.getName();
+                nowData[1] = String.valueOf(cocktail.getSugar());
+                nowData[2] = String.valueOf(cocktail.getAlcohol());
+                nowData[3] = String.valueOf(cocktail.getBody());
+                nowData[4] = String.valueOf(cocktail.getUnique_());
+                nowData[5] = cocktail.getBase();
+                nowData[6] = String.valueOf(cocktail.getId());
+                Intent intent = new Intent(context, CocktailDetailActivity.class);
+                intent.putExtra("cocktaildata",nowData);
+                context.startActivity(intent);
+            }
+        });
         long delId=(long)cocktail.getId();
         cButton.setTag(position);
         cButton.setOnClickListener(new View.OnClickListener(){

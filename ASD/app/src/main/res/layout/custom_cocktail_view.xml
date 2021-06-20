@@ -27,7 +27,7 @@
             android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:text="Name"
-            android:textColor="@android:color/holo_green_light"
+            android:textColor="#95E0C8"
             android:textSize="20sp" />
 
         <TextView
@@ -40,7 +40,7 @@
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:text="Base"
-            android:textColor="@android:color/holo_green_light"
+            android:textColor="#95E0C8"
             android:textSize="15sp" />
 
         <TextView
@@ -90,6 +90,9 @@
         <RatingBar
             android:id="@+id/rb_sugar0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:progressTint="@color/black"
+            android:progressBackgroundTint="@color/white"
+            android:secondaryProgressTint="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -106,6 +109,9 @@
         <RatingBar
             android:id="@+id/rb_alcohol0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:progressTint="@color/black"
+            android:progressBackgroundTint="@color/white"
+            android:secondaryProgressTint="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -122,6 +128,9 @@
         <RatingBar
             android:id="@+id/rb_body0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:progressTint="#95E0C8"
+            android:progressBackgroundTint="@color/white"
+            android:secondaryProgressTint="#95E0C8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
@@ -138,6 +147,9 @@
         <RatingBar
             android:id="@+id/rb_unique0"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
+            android:progressTint="#95E0C8"
+            android:progressBackgroundTint="@color/white"
+            android:secondaryProgressTint="#95E0C8"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
