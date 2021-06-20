@@ -154,14 +154,20 @@
 
         <Button
             android:id="@+id/btn_delete1"
-            android:layout_width="55dp"
-            android:layout_height="wrap_content"
+            android:background="@drawable/button_design"
+            android:layout_width="45dp"
+            android:layout_height="30dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentBottom="true"
             android:layout_marginRight="9dp"
             android:layout_marginBottom="7dp"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
             android:focusable="false"
             android:textSize="10sp"
+            android:textColor="@color/black"
             android:text="삭제" />
 
     </RelativeLayout>

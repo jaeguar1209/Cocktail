@@ -17,7 +17,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="125dp"
+            android:layout_marginRight="135dp"
             android:text="이   름 : "
             android:textSize="17sp"/>
 
@@ -28,9 +28,9 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="20dp"
-            android:layout_marginLeft="290dp"
+            android:layout_marginLeft="280dp"
             android:text="name"
-            android:textSize="17sp"/>
+            android:textSize="15sp"/>
 
         <TextView
             android:id="@+id/tv_cocktail_sugar"
@@ -49,7 +49,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="55dp"
-            android:layout_marginLeft="290dp"
+            android:layout_marginLeft="280dp"
             android:text="sugar"
             android:textSize="17sp"/>
 
@@ -69,7 +69,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="90dp"
-            android:layout_marginLeft="290dp"
+            android:layout_marginLeft="280dp"
             android:text="alcohol"
             android:textSize="17sp"/>
         <TextView
@@ -89,7 +89,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="125dp"
-            android:layout_marginLeft="290dp"
+            android:layout_marginLeft="280dp"
             android:text="body"
             android:textSize="17sp"/>
         <TextView
@@ -109,7 +109,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="160dp"
-            android:layout_marginLeft="290dp"
+            android:layout_marginLeft="280dp"
             android:text="unique"
             android:textSize="17sp"/>
         <TextView
@@ -129,7 +129,7 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentLeft="true"
             android:layout_marginTop="195dp"
-            android:layout_marginLeft="290dp"
+            android:layout_marginLeft="280dp"
             android:text="base"
             android:textSize="17sp"/>
 
@@ -140,11 +140,6 @@
         android:layout_marginLeft="30dp"
         android:layout_marginTop="30dp"/>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="2px"
-            android:layout_marginTop="245dp"
-            android:background="#00ff00" />
     </RelativeLayout>
 
     <ToggleButton
