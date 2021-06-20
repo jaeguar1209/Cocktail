@@ -1,8 +1,6 @@
 package com.example.asd;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -12,7 +10,7 @@ import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.ScaleAnimation;
-import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
@@ -48,20 +46,19 @@ public class CocktailDetailActivity extends AppCompatActivity {
     ToggleButton btn_favorite;
     DatabaseHelper mDbOpenHelper;;
     ScaleAnimation scaleAnimation;
-
+    int _id;
     TextView ingredient_detail;
     String JSON_URL ="https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
     ModelClass model = new ModelClass();
 
-//    Integer res;
 
-//    int[] countryFlags={R.drawable.jackcoke,R.drawable.godfather,R.drawable.mintjulpe,R.drawable.hottoddy,R.drawable.highball,
-//            R.drawable.irishcoffee,R.drawable.screwdriver,R.drawable.saltydog,R.drawable.godmother,R.drawable.balalaika,
-//            R.drawable.kamikaje,R.drawable.sexonthebeach,R.drawable.bluelagoon,R.drawable.vodkatonic,R.drawable.brainhemorrhage,
-//            R.drawable.orgazm,R.drawable.americano,R.drawable.bluesapphire,R.drawable.angelskiss,R.drawable.midorisour,
-//            R.drawable.bandb,R.drawable.kahluamilk,R.drawable.appetizer,R.drawable.bluemoon,R.drawable.ginrickey,
-//            R.drawable.gibson,R.drawable.gimlet,R.drawable.gintonic,R.drawable.ginbuck,R.drawable.faust,
-//            R.drawable.katharsis,R.drawable.xyz,R.drawable.mojito,R.drawable.rumandcoke};
+    int[] countryFlags={R.drawable.jackcoke,R.drawable.godfather,R.drawable.mintjulpe,R.drawable.hottoddy,R.drawable.highball,
+            R.drawable.irishcoffee,R.drawable.screwdriver,R.drawable.saltydog,R.drawable.godmother,R.drawable.balalaika,
+            R.drawable.kamikaje,R.drawable.sexonthebeach,R.drawable.bluelagoon,R.drawable.vodkatonic,R.drawable.brainhemorrhage,
+            R.drawable.orgazm,R.drawable.americano,R.drawable.bluesapphire,R.drawable.angelskiss,R.drawable.midorisour,
+            R.drawable.bandb,R.drawable.kahluamilk,R.drawable.appetizer,R.drawable.bluemoon,R.drawable.ginrickey,
+            R.drawable.gibson,R.drawable.gimlet,R.drawable.gintonic,R.drawable.ginbuck,R.drawable.faust,
+            R.drawable.katharsis,R.drawable.xyz,R.drawable.mojito,R.drawable.rumandcoke};
 
 
 
@@ -73,7 +70,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cocktail_detail);
 
 
-//        ImageView cImage=(ImageView)findViewById(R.id.imageView6);
+        ImageView cImage=(ImageView)findViewById(R.id.imageView6);
 
 
         chart = (RadarChart) findViewById(R.id.chart_radar);
@@ -90,6 +87,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
         tv_unique.setText(nowData[4]);
         tv_base=(TextView)findViewById(R.id.tv_base);
         tv_base.setText(nowData[5]);
+        _id=Integer.parseInt(nowData[6]);
         btn_favorite=(ToggleButton)findViewById(R.id.btn_favorite);
         btn_favorite.setOnClickListener(onClickListener);
         scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF,0.7f,Animation.RELATIVE_TO_SELF,0.7f);
@@ -100,8 +98,8 @@ public class CocktailDetailActivity extends AppCompatActivity {
         setFavoriteButton();
 
         ingredient_detail = (TextView)findViewById(R.id.ingredient_detail);
+        cImage.setImageResource(countryFlags[_id-1]);
 
-//        cImage.setImageResource(countryFlags[res-1]);
 
         StringBuilder BaseURL = new StringBuilder();
         BaseURL.append(JSON_URL);
