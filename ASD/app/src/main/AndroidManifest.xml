@@ -31,6 +31,8 @@
         <activity android:name=".SearchActivity"/>
         <activity android:name=".NameSearchActivity"/>
         <activity android:name=".CocktailDetailActivity"/>
+        <activity android:name=".InitActivity"/>
+        <activity android:name=".ActivityStart"/>
 
     </application>
 

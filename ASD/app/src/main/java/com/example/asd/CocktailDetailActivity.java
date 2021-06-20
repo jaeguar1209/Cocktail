@@ -60,9 +60,6 @@ public class CocktailDetailActivity extends AppCompatActivity {
             R.drawable.gibson,R.drawable.gimlet,R.drawable.gintonic,R.drawable.ginbuck,R.drawable.faust,
             R.drawable.katharsis,R.drawable.xyz,R.drawable.mojito,R.drawable.rumandcoke};
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -105,7 +102,6 @@ public class CocktailDetailActivity extends AppCompatActivity {
         BaseURL.append(JSON_URL);
         BaseURL.append(nowData[0]);
         JSON_URL = BaseURL.toString();
-
 
         CocktailDetailActivity.GetData getData = new CocktailDetailActivity.GetData();
         getData.execute();
@@ -243,7 +239,6 @@ public class CocktailDetailActivity extends AppCompatActivity {
             return false;
         return true;
     }
-
 
     public class GetData extends AsyncTask<String, String, String> {
         @Override

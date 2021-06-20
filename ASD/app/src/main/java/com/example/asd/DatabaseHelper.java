@@ -116,6 +116,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
         }
     }
+    public boolean isInit(){
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME1,null);
+        if(cursor.getCount()>=1){
+            return false;
+        }
+        else
+            return true;
+    }
     public boolean isFavorite(long _id){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME1 +" WHERE _ID = "+_id,null);
@@ -129,6 +138,23 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         ArrayList<Cocktail> arrayList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME0,null);
+        while(cursor.moveToNext()){
+            String name = cursor.getString(0);
+            int sugar = cursor.getInt(1);
+            int alcohol = cursor.getInt(2);
+            int body = cursor.getInt(3);
+            int unique_ = cursor.getInt(4);
+            String base = cursor.getString(5);
+            int _id = cursor.getInt(6);
+            Cocktail cocktail = new Cocktail(name,sugar,alcohol,body,unique_,base,_id);
+            arrayList.add(cocktail);
+        }
+        return arrayList;
+    }
+    public ArrayList<Cocktail> getRandom0(){
+        ArrayList<Cocktail> arrayList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM "+com.example.asd.DataBases.CreateDB._TABLENAME0 + " ORDER BY RANDOM()",null);
         while(cursor.moveToNext()){
             String name = cursor.getString(0);
             int sugar = cursor.getInt(1);
@@ -218,13 +244,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             int unique_ = cursor.getInt(4);
             base = cursor.getString(5);
             int _id = cursor.getInt(6);
-            Log.d("cursor 0: ",name);
-            Log.d("cursor 1: ",Integer.toString(sugar));
-            Log.d("cursor 2: ",Integer.toString(alcohol));
-            Log.d("cursor 3: ",Integer.toString(body));
-            Log.d("cursor 4: ",Integer.toString(unique_));
-            Log.d("cursor 5: ",base);
-            Log.d("cursor 6: ",Integer.toString(_id));
             Sugar=Integer.toString(sugar);
             Alcohol=Integer.toString(alcohol);
             Body=Integer.toString(body);

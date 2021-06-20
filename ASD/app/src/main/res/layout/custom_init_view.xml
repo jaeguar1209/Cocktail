@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<com.example.asd.CheckableLinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <!-- 커스텀리스트 -->
     <ImageView
-        android:id="@+id/imageView0"
+        android:id="@+id/imageView2"
         android:layout_width="120dp"
         android:layout_height="140dp"
         android:scaleType="fitXY"
@@ -18,12 +18,11 @@
         android:layout_height="160dp">
 
         <TextView
-            android:id="@+id/cocktailName0"
+            android:id="@+id/cocktailName2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:text="Name"
@@ -31,12 +30,12 @@
             android:textSize="19sp" />
 
         <TextView
-            android:id="@+id/cocktailBase0"
+            android:id="@+id/cocktailBase2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="345dp"
+            android:layout_marginLeft="220dp"
             android:layout_marginTop="26dp"
             android:gravity="center_vertical"
             android:text="Base"
@@ -44,82 +43,78 @@
             android:textSize="15sp" />
 
         <TextView
-            android:id="@+id/tv_sugar0"
+            android:id="@+id/tv_sugar2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="40dp"
             android:textSize="15sp"
-            android:text="당도"
-            android:textColor="#566270"/>
+            android:textColor="#566270"
+            android:text="당도" />
 
         <TextView
-            android:id="@+id/tv_alcohol0"
+            android:id="@+id/tv_alcohol2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="70dp"
             android:textSize="15sp"
             android:textColor="#566270"
             android:text="도수" />
 
         <TextView
-            android:id="@+id/tv_body0"
+            android:id="@+id/tv_body2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="100dp"
             android:textSize="15sp"
             android:textColor="#566270"
             android:text="바디감" />
 
         <TextView
-            android:id="@+id/tv_unique0"
+            android:id="@+id/tv_unique2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="140dp"
             android:layout_marginTop="130dp"
             android:textSize="15sp"
             android:textColor="#566270"
             android:text="독특함" />
 
         <RatingBar
-            android:id="@+id/rb_sugar0"
+            android:id="@+id/rb_sugar2"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:layout_width="168dp"
-            android:layout_height="48dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="38dp"
-            android:layout_marginRight="43dp"
+            android:layout_marginRight="40dp"
             android:isIndicator="true"
             android:progressTint="#566270"
+            android:secondaryProgressTint="#566270"
             android:scaleX=".8"
             android:scaleY=".7"
-            android:secondaryProgressTint="#566270"
             android:stepSize="0.1"
             android:transformPivotX="0dp"
             android:transformPivotY="0dp" />
 
         <RatingBar
-            android:id="@+id/rb_alcohol0"
+            android:id="@+id/rb_alcohol2"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressTint="#566270"
-            android:secondaryProgressTint="#566270"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="69dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="40dp"
+            android:progressTint="#566270"
+            android:secondaryProgressTint="#566270"
             android:isIndicator="true"
             android:scaleX=".8"
             android:scaleY=".7"
@@ -128,16 +123,16 @@
             android:transformPivotY="0dp" />
 
         <RatingBar
-            android:id="@+id/rb_body0"
+            android:id="@+id/rb_body2"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressTint="#566270"
-            android:secondaryProgressTint="#566270"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="99dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="40dp"
+            android:progressTint="#566270"
+            android:secondaryProgressTint="#566270"
             android:isIndicator="true"
             android:scaleX=".8"
             android:scaleY=".7"
@@ -146,17 +141,17 @@
             android:transformPivotY="0dp" />
 
         <RatingBar
-            android:id="@+id/rb_unique0"
+            android:id="@+id/rb_unique2"
             style="@style/Widget.AppCompat.RatingBar.Indicator"
-            android:progressTint="#566270"
-            android:secondaryProgressTint="#566270"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_marginTop="129dp"
-            android:layout_marginRight="30dp"
+            android:layout_marginRight="40dp"
             android:isIndicator="true"
+            android:progressTint="#566270"
+            android:secondaryProgressTint="#566270"
             android:numStars="5"
             android:scaleX=".8"
             android:scaleY=".7"
@@ -164,5 +159,16 @@
             android:transformPivotX="0dp"
             android:transformPivotY="0dp" />
 
+        <CheckBox
+            android:id="@+id/checkBox1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="80dp"
+            android:layout_weight="1"
+            android:clickable="false"
+            android:focusable="true" />
     </RelativeLayout>
-</RelativeLayout>
+</com.example.asd.CheckableLinearLayout>

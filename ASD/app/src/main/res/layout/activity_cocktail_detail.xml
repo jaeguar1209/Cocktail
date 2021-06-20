@@ -39,6 +39,15 @@
             android:layout_marginTop="50dp"
             tools:srcCompat="@tools:sample/avatars" />
 
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="50dp"
+            tools:srcCompat="@tools:sample/avatars" />
+
         <TextView
             android:id="@+id/tv_cocktail_name"
             android:layout_width="wrap_content"
@@ -179,6 +188,17 @@
             android:layout_marginLeft="280dp"
             android:layout_marginTop="195dp"
             android:text="base"
+            android:textColor="#566270"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/ingredient_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="230dp"
+            android:layout_marginLeft="230dp"
+            android:layout_marginTop="290dp"
+            android:text=""
             android:textColor="#566270"
             android:textSize="17sp" />
 
