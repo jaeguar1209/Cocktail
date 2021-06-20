@@ -93,6 +93,7 @@ public class SearchActivity extends AppCompatActivity {
             try {
                 JSONObject jsonObject = new JSONObject(s);
                 JSONArray jsonArray = jsonObject.getJSONArray("drinks");
+
                 ArrayList<Integer> RandomA;
                 RandomA = new ArrayList<>();
                 for (int i = 0; i < 5; i++) {
