@@ -11,7 +11,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="341dp"
-        android:background="#ff5c00"
+        android:background="#a593e0"
         app:contentInsetStart="0dp"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,7 +24,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Main"
-            android:textColor="#ffffff"
+            android:textColor="#566270"
             android:textSize="20sp" />
 
 
@@ -32,6 +32,7 @@
 
     <Button
         android:id="@+id/button1"
+        android:background="@drawable/button_design"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="28dp"
@@ -40,6 +41,7 @@
         android:layout_marginRight="53dp"
         android:layout_marginBottom="254dp"
         android:text="Recommend"
+        android:textColor="#566270"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/button2"
         app:layout_constraintStart_toStartOf="parent"
@@ -55,6 +57,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="64dp"
         android:text="Search"
+        android:textColor="#566270"
+        android:background="@drawable/button_design"
         app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button1"
@@ -69,6 +73,8 @@
         android:layout_marginRight="30dp"
         android:layout_marginBottom="110dp"
         android:text="MyCockTail"
+        android:textColor="#566270"
+        android:background="@drawable/button_design"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button3"
@@ -84,6 +90,8 @@
         android:layout_marginEnd="53dp"
         android:layout_marginRight="53dp"
         android:text="DB"
+        android:textColor="#566270"
+        android:background="@drawable/button_design"
         app:layout_constraintBaseline_toBaselineOf="@+id/button4"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintStart_toStartOf="parent"

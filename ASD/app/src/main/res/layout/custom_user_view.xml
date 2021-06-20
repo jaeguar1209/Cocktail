@@ -23,12 +23,12 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="160dp"
+            android:layout_marginLeft="140dp"
             android:layout_marginTop="2dp"
             android:gravity="center_vertical"
             android:text="Name"
-            android:textColor="@android:color/holo_green_light"
-            android:textSize="20sp" />
+            android:textColor="#566270"
+            android:textSize="19sp" />
 
         <TextView
             android:id="@+id/cocktailBase1"
@@ -40,7 +40,7 @@
             android:layout_marginTop="4dp"
             android:gravity="center_vertical"
             android:text="Base"
-            android:textColor="@android:color/holo_green_light"
+            android:textColor="#566270"
             android:textSize="15sp" />
 
         <TextView
@@ -51,7 +51,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="40dp"
-            android:textSize="17sp"
+            android:textSize="15sp"
+            android:textColor="#566270"
             android:text="당도" />
 
         <TextView
@@ -62,7 +63,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="70dp"
-            android:textSize="17sp"
+            android:textSize="15sp"
+            android:textColor="#566270"
             android:text="도수" />
 
         <TextView
@@ -73,7 +75,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="100dp"
-            android:textSize="17sp"
+            android:textSize="15sp"
+            android:textColor="#566270"
             android:text="바디감" />
 
         <TextView
@@ -84,7 +87,8 @@
             android:layout_alignParentTop="true"
             android:layout_marginLeft="140dp"
             android:layout_marginTop="130dp"
-            android:textSize="17sp"
+            android:textSize="15sp"
+            android:textColor="#566270"
             android:text="독특함" />
 
         <RatingBar
@@ -97,6 +101,9 @@
             android:layout_marginTop="38dp"
             android:layout_marginRight="30dp"
             android:isIndicator="true"
+            android:progressTint="#566270"
+            android:progressBackgroundTint="#E0E3DA"
+            android:secondaryProgressTint="#566270"
             android:scaleX=".8"
             android:scaleY=".7"
             android:stepSize="0.1"
@@ -112,6 +119,9 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="69dp"
             android:layout_marginRight="30dp"
+            android:progressTint="#566270"
+            android:progressBackgroundTint="#E0E3DA"
+            android:secondaryProgressTint="#566270"
             android:isIndicator="true"
             android:scaleX=".8"
             android:scaleY=".7"
@@ -128,6 +138,9 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="99dp"
             android:layout_marginRight="30dp"
+            android:progressTint="#566270"
+            android:progressBackgroundTint="#E0E3DA"
+            android:secondaryProgressTint="#566270"
             android:isIndicator="true"
             android:scaleX=".8"
             android:scaleY=".7"
@@ -145,6 +158,9 @@
             android:layout_marginTop="129dp"
             android:layout_marginRight="30dp"
             android:isIndicator="true"
+            android:progressTint="#566270"
+            android:progressBackgroundTint="#E0E3DA"
+            android:secondaryProgressTint="#566270"
             android:numStars="5"
             android:scaleX=".8"
             android:scaleY=".7"
@@ -167,7 +183,7 @@
             android:paddingBottom="1dp"
             android:focusable="false"
             android:textSize="10sp"
-            android:textColor="@color/black"
+            android:textColor="#566270"
             android:text="삭제" />
 
     </RelativeLayout>
