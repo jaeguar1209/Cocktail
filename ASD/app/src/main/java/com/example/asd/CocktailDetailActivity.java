@@ -1,8 +1,6 @@
 package com.example.asd;
 
-import android.content.Context;
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -86,6 +84,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
         tv_unique.setText(nowData[4]);
         tv_base=(TextView)findViewById(R.id.tv_base);
         tv_base.setText(nowData[5]);
+        _id=Integer.parseInt(nowData[6]);
         btn_favorite=(ToggleButton)findViewById(R.id.btn_favorite);
         btn_favorite.setOnClickListener(onClickListener);
         scaleAnimation = new ScaleAnimation(0.7f, 1.0f, 0.7f, 1.0f, Animation.RELATIVE_TO_SELF,0.7f,Animation.RELATIVE_TO_SELF,0.7f);
@@ -107,7 +106,9 @@ public class CocktailDetailActivity extends AppCompatActivity {
         CocktailDetailActivity.GetData getData = new CocktailDetailActivity.GetData();
         getData.execute();
     }
-    //좋아요 버튼 이미지 설정
+
+
+    //초기 좋아요 버튼 이미지 설정
     private void setFavoriteButton(){
         boolean haveItem = mDbOpenHelper.isFavorite(Long.parseLong(nowData[6]));
         if(haveItem){
@@ -158,14 +159,21 @@ public class CocktailDetailActivity extends AppCompatActivity {
         4 : long : 독특함
         5 : string : 베이스
          */
+
         nowData = intent.getStringArrayExtra("cocktaildata");
+//       res=intent.getIntExtra("cocktaildata",-1);
+
         dataVals.add(new RadarEntry(Long.parseLong(nowData[1])));
         dataVals.add(new RadarEntry(Long.parseLong(nowData[2])));
         dataVals.add(new RadarEntry(Long.parseLong(nowData[3])));
         dataVals.add(new RadarEntry(Long.parseLong(nowData[4])));
         CocktailBase = selectBase(nowData[5]);
+
+
+
         return dataVals;
     }
+
     private void makeChart(){
         //데이타셋
 
@@ -231,6 +239,7 @@ public class CocktailDetailActivity extends AppCompatActivity {
             return false;
         return true;
     }
+
     public class GetData extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... strings) {
