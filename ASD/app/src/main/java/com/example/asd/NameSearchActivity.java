@@ -107,12 +107,12 @@ public class NameSearchActivity extends AppCompatActivity {
                     model.setStrDrinkThumb(jsonObject1.getString("strDrinkThumb"));
                     model.setStrInstructions(jsonObject1.getString("strInstructions"));
                     String ingredientIndex;
-                    for (int j = 1; j < 10; j++){
+                    for (int j = 1; j < 15; j++){
                         StringBuilder ingredient = new StringBuilder();
                         ingredient.append("strIngredient");
                         ingredient.append(j);
                         ingredientIndex = ingredient.toString();
-                        if (jsonObject1.getString(ingredientIndex) == "null")
+                        if (jsonObject1.getString(ingredientIndex) == "null" || jsonObject1.getString(ingredientIndex) == null)
                             break;
                         model.AddingredList(jsonObject1.getString(ingredientIndex));
                     }
